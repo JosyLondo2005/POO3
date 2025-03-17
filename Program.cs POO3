@@ -1,6 +1,3 @@
-Aquí tienes exactamente el mismo código **sin comentarios**:
-
-```csharp
 using System;
 
 class Program
@@ -35,4 +32,4 @@ class Program
         program.Run();
     }
 }
-```
+
