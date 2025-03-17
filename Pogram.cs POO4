@@ -1,0 +1,30 @@
+using System;
+
+class Program
+{
+    private readonly Utils _utils;
+
+    public Program()
+    {
+        _utils = new Utils();
+    }
+
+    private void Run()
+    {
+        Console.Write("Ingrese el número a descomponer: ");
+        int number;
+        while (!int.TryParse(Console.ReadLine(), out number) || number <= 1)
+        {
+            Console.Write("Entrada inválida. Ingrese un número positivo mayor que 1: ");
+        }
+
+        Factorizer factorizer = new Factorizer(number);
+        _utils.ImprimirFactores(factorizer);
+    }
+
+    static void Main()
+    {
+        Program program = new Program();
+        program.Run();
+    }
+}
