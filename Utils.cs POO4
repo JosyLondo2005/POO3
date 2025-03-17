@@ -1,0 +1,18 @@
+using System;
+
+public class Utils
+{
+    private readonly string _description;
+
+    public string Description { get => _description; }
+
+    public Utils()
+    {
+        _description = "Clase auxiliar para impresión de resultados";
+    }
+
+    public void PrintFactors(Factorizer factorizer)
+    {
+        Console.WriteLine(factorizer);
+    }
+}
