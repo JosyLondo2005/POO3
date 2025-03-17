@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+
+public class Factorizer
+{
+    private readonly int _number;
+    private readonly List<int> _factors;
+
+    public int Number { get => _number; }
+    public List<int> Factors { get => _factors; }
+
+    public Factorizer(int number)
+    {
+        ValidateNumber(number);
+        _number = number;
+        _factors = Factorize(number);
+    }
+
+    private void ValidateNumber(int number)
+    {
+        if (number <= 1)
+            throw new ArgumentException("El número debe ser mayor que 1 para su factorización.");
+    }
+
+    private List<int> Factorize(int number)
+    {
+        List<int> factors = new List<int>();
+        for (int i = 2; i <= number; i++)
+        {
+            while (number % i == 0)
+            {
+                factors.Add(i);
+                number /= i;
+            }
+        }
+        return factors;
+    }
+
+    public override string ToString()
+    {
+        return $"{_number} = {string.Join(" x ", _factors)}";
+    }
+}
