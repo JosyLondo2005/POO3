@@ -1,0 +1,38 @@
+Aquí tienes exactamente el mismo código **sin comentarios**:
+
+```csharp
+using System;
+
+class Program
+{
+    private readonly Utils _utils;
+
+    public Program()
+    {
+        _utils = new Utils();
+    }
+
+    private void Run()
+    {
+        Console.Write("Ingrese orden de la matriz: ");
+        int n;
+        while (!int.TryParse(Console.ReadLine(), out n) || n <= 0)
+        {
+            Console.Write("Entrada inválida. Ingrese un número positivo: ");
+        }
+
+        Matriz matriz = new Matriz(n);
+        _utils.ImprimirMatriz(matriz);
+
+        Console.WriteLine($"La sumatoria es: {matriz.CalcularSumatoria()}");
+        Console.WriteLine($"El valor máximo es: {matriz.EncontrarMaximo()}");
+        Console.WriteLine($"El valor mínimo es: {matriz.EncontrarMinimo()}");
+    }
+
+    static void Main()
+    {
+        Program program = new Program();
+        program.Run();
+    }
+}
+```
