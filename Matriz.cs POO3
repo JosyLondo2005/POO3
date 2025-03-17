@@ -1,0 +1,71 @@
+using System;
+
+public class Matriz
+{
+    private readonly int _orden;
+    private readonly int[,] _datos;
+
+    public int Orden { get => _orden; }
+    public int[,] Datos { get => _datos; }
+
+    public Matriz(int orden)
+    {
+        _orden = orden;
+        _datos = new int[_orden, _orden];
+        LlenarMatriz();
+    }
+
+    private void LlenarMatriz()
+    {
+        for (int i = 0; i < _orden; i++)
+        {
+            for (int j = 0; j < _orden; j++)
+            {
+                _datos[i, j] = (i + 1) - j;
+            }
+        }
+    }
+
+    public int CalcularMaximo()
+    {
+        int maximo = _datos[0, 0];
+        foreach (int valor in _datos)
+        {
+            if (valor > maximo)
+                maximo = valor;
+        }
+        return maximo;
+    }
+
+    public int CalcularSuma()
+    {
+        int suma = 0;
+        foreach (int valor in _datos)
+        {
+            suma += valor;
+        }
+        return suma;
+    }
+
+    public int EncontrarMaximo()
+    {
+        int maximo = _datos[0, 0];
+        foreach (int valor in _datos)
+        {
+            if (valor > maximo)
+                maximo = valor;
+        }
+        return maximo;
+    }
+
+    public int EncontrarMinimo()
+    {
+        int minimo = _datos[0, 0];
+        foreach (int valor in _datos)
+        {
+            if (valor < minimo)
+                minimo = valor;
+        }
+        return minimo;
+    }
+}
