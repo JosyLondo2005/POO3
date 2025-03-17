@@ -1,0 +1,25 @@
+using System;
+
+public class Utils
+{
+    private readonly string _descripcion;
+
+    public string Descripcion { get => _descripcion; }
+
+    public Utils(string descripcion)
+    {
+        _descripcion = descripcion;
+    }
+
+    public void ImprimirMatriz(Matriz matriz)
+    {
+        for (int i = 0; i < matriz.Orden; i++)
+        {
+            for (int j = 0; j < matriz.Orden; j++)
+            {
+                Console.Write(matriz.Datos[i, j].ToString().PadLeft(3) + "  ");
+            }
+            Console.WriteLine();
+        }
+    }
+}
